@@ -25,19 +25,23 @@ export function initStickyNav() {
     nav.classList.toggle("is-visible", show);
   }
 
-  window.addEventListener(
-    "scroll",
-    () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
-        update();
-        ticking = false;
-      });
-    },
-    { passive: true }
-  );
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      update();
+      ticking = false;
+    });
+  }
+
+  window.addEventListener("scroll", onScroll, { passive: true });
 
   // Initial check
   update();
+
+  return {
+    destroy() {
+      window.removeEventListener("scroll", onScroll);
+    },
+  };
 }

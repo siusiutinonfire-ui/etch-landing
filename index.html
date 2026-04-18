@@ -6,11 +6,13 @@
   <title>ETCH Element Cards — Words Worth Carrying</title>
   <meta name="description" content="Premium metal cards engraved with words that matter — rooted in Five Elements philosophy, designed to live in your wallet.">
 
-  <!-- Open Graph -->
+  <!-- Open Graph — TODO: Replace with absolute URLs once production domain is set -->
   <meta property="og:title" content="ETCH Element Cards — Words Worth Carrying">
   <meta property="og:description" content="Premium metal cards engraved with words that matter — rooted in Five Elements philosophy, designed to live in your wallet.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/images/hero-card.jpg">
+  <meta property="og:url" content="https://etch.example.com/">
+  <meta property="og:image" content="https://etch.example.com/assets/images/hero-card.jpg">
+  <link rel="canonical" href="https://etch.example.com/">
 
   <!-- Favicon placeholder -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⬡</text></svg>">
@@ -33,11 +35,12 @@
     <a href="#section-6" class="site-nav__shop js-smooth-scroll">SHOP</a>
   </nav>
 
+  <main>
+
   <!-- ===== SECTION 1: HERO ===== -->
   <section class="hero" id="section-1" aria-label="Hero">
     <picture class="hero__image">
-      <source srcset="assets/images/hero-card.avif" type="image/avif">
-      <source srcset="assets/images/hero-card.webp" type="image/webp">
+      <!-- Add AVIF/WebP <source> tags when production images are ready -->
       <img src="assets/images/hero-card.jpg"
            alt="ETCH metal card on cream linen, natural light"
            width="1200" height="800"
@@ -74,8 +77,7 @@
     <div class="craft__layout">
       <div class="craft__image-wrap">
         <picture>
-          <source srcset="assets/images/craft-macro.avif" type="image/avif">
-          <source srcset="assets/images/craft-macro.webp" type="image/webp">
+          <!-- Add AVIF/WebP <source> tags when production images are ready -->
           <img src="assets/images/craft-macro.jpg"
                alt="Macro close-up of laser-engraved text on brushed stainless steel surface"
                width="800" height="1000"
@@ -137,8 +139,7 @@
     <div class="element-stage" id="element-metal" data-accent="gold" aria-label="Metal element collection">
       <div class="element-stage__bg-wrap">
         <picture>
-          <source srcset="assets/images/metal-mountains.avif" type="image/avif">
-          <source srcset="assets/images/metal-mountains.webp" type="image/webp">
+          <!-- Add AVIF/WebP <source> tags when production images are ready -->
           <img src="assets/images/metal-mountains.jpg"
                alt="Sunset mountain range bathed in golden hour light with mist in valleys"
                class="element-stage__bg"
@@ -171,8 +172,7 @@
     <div class="element-stage" id="element-wood" data-accent="forest" aria-label="Wood element collection">
       <div class="element-stage__bg-wrap">
         <picture>
-          <source srcset="assets/images/wood-forest.avif" type="image/avif">
-          <source srcset="assets/images/wood-forest.webp" type="image/webp">
+          <!-- Add AVIF/WebP <source> tags when production images are ready -->
           <img src="assets/images/wood-forest.jpg"
                alt="Aerial view of dense forest canopy with morning light filtering through"
                class="element-stage__bg"
@@ -205,8 +205,7 @@
     <div class="element-stage" id="element-water" data-accent="ocean" aria-label="Water element collection">
       <div class="element-stage__bg-wrap">
         <picture>
-          <source srcset="assets/images/water-ocean.avif" type="image/avif">
-          <source srcset="assets/images/water-ocean.webp" type="image/webp">
+          <!-- Add AVIF/WebP <source> tags when production images are ready -->
           <img src="assets/images/water-ocean.jpg"
                alt="Aerial view of open ocean, deep blue water with white foam patterns"
                class="element-stage__bg"
@@ -565,6 +564,8 @@
 
     </div>
   </section>
+
+  </main>
 
   <!-- ===== SECTION 8: FINAL CTA ===== -->
   <footer class="final-cta on-dark" id="section-8" aria-label="Final call to action">

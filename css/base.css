@@ -71,7 +71,13 @@ button {
   max-width: var(--max-text-width);
 }
 
-/* Aesop: zero border-radius everywhere */
-* {
-  border-radius: 0 !important;
+/* Aesop: zero border-radius on interactive and card elements */
+.cta,
+.pricing-card,
+.scene-card,
+.faq__item,
+.element-tabs__btn,
+input,
+button {
+  border-radius: 0;
 }

@@ -77,6 +77,12 @@ export function initElementScroll() {
 
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
+
+  return {
+    destroy() {
+      window.removeEventListener("scroll", onScroll);
+    },
+  };
 }
 
 /**

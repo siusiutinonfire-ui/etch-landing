@@ -48,22 +48,26 @@ export function initElementTabs() {
 
   // Scroll sync — throttled via rAF
   let ticking = false;
-  window.addEventListener(
-    "scroll",
-    () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
-        const activeId = getActiveElement();
-        if (activeId) {
-          const activeBtn = nav.querySelector(`[data-target="${activeId}"]`);
-          if (activeBtn) setActive(buttons, activeBtn);
-        }
-        ticking = false;
-      });
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      const activeId = getActiveElement();
+      if (activeId) {
+        const activeBtn = nav.querySelector(`[data-target="${activeId}"]`);
+        if (activeBtn) setActive(buttons, activeBtn);
+      }
+      ticking = false;
+    });
+  }
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+
+  return {
+    destroy() {
+      window.removeEventListener("scroll", onScroll);
     },
-    { passive: true }
-  );
+  };
 }
 
 /**

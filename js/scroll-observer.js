@@ -27,6 +27,7 @@ export function createScrollObserver({
       for (const entry of entries) {
         if (entry.isIntersecting) {
           entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
           if (onEnter) onEnter(entry.target);
         } else {
           if (onExit) onExit(entry.target);

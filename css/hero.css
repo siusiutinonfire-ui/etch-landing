@@ -83,13 +83,6 @@
   opacity: 0.8;
 }
 
-.cta-text-tc {
-  font-family: var(--font-tc-body);
-  font-size: 10px;
-  letter-spacing: 0.05em;
-  opacity: 0.7;
-}
-
 /* Primary CTA */
 .cta--primary {
   background-color: var(--gold);
