@@ -1,0 +1,89 @@
+.scenes {
+  background-color: var(--sand);
+  padding: var(--space-16) var(--space-6);
+}
+
+.scenes__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.scenes__heading {
+  margin-bottom: var(--space-12);
+}
+
+/* Horizontal scroll on mobile */
+.scenes__scroll {
+  display: flex;
+  gap: var(--space-4);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: var(--space-4);
+}
+
+/* Hide scrollbar but keep functionality */
+.scenes__scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.scenes__scroll {
+  scrollbar-width: none;
+}
+
+.scene-card {
+  flex: 0 0 280px;
+  scroll-snap-align: start;
+  background: var(--cream);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.scene-card__title {
+  color: var(--ink);
+}
+
+.scene-card__title span {
+  font-family: var(--font-tc-body);
+  font-weight: var(--fw-regular);
+  font-size: 0.85em;
+  color: var(--slate);
+  margin-left: var(--space-2);
+}
+
+.scene-card__tag {
+  margin-top: auto;
+  padding-top: var(--space-4);
+}
+
+/* Self-use card: equal visual weight, subtle differentiation */
+.scene-card--self {
+  border-left: 2px solid var(--gold);
+}
+
+/* Desktop: 2x2 grid + self card */
+@media (min-width: 1024px) {
+  .scenes {
+    padding: var(--space-24) var(--space-16);
+  }
+
+  .scenes__scroll {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+    overflow-x: visible;
+    scroll-snap-type: none;
+  }
+
+  .scene-card {
+    flex: none;
+  }
+
+  /* Self card spans full width */
+  .scene-card--self {
+    grid-column: 1 / -1;
+    max-width: 50%;
+  }
+}
