@@ -116,7 +116,116 @@
 
   <!-- ===== SECTION 3: FIVE ELEMENTS ===== -->
   <section class="elements" id="section-3" aria-label="Five Elements collections">
-    <!-- Populated in Task 4 & 5 -->
+
+    <!-- Element tabs (populated in Task 5) -->
+    <nav class="element-tabs" id="element-tabs" aria-label="Element navigation">
+      <button class="element-tabs__btn is-active" data-target="element-metal" aria-current="true">金</button>
+      <button class="element-tabs__btn" data-target="element-wood">木</button>
+      <button class="element-tabs__btn" data-target="element-water">水</button>
+    </nav>
+
+    <!-- 金 Metal -->
+    <div class="element-stage" id="element-metal" data-accent="gold" aria-label="Metal element collection">
+      <div class="element-stage__bg-wrap">
+        <picture>
+          <source srcset="assets/images/metal-mountains.avif" type="image/avif">
+          <source srcset="assets/images/metal-mountains.webp" type="image/webp">
+          <img src="assets/images/metal-mountains.jpg"
+               alt="Sunset mountain range bathed in golden hour light with mist in valleys"
+               class="element-stage__bg"
+               loading="lazy"
+               style="background: url('assets/placeholder/metal-lqip.svg') center/cover no-repeat">
+        </picture>
+      </div>
+      <div class="element-stage__overlay"></div>
+      <div class="element-stage__content">
+        <span class="element-stage__symbol" aria-hidden="true">金</span>
+        <h2 class="element-stage__name display-en">Metal</h2>
+        <blockquote class="element-stage__quote bilingual-stack">
+          <p class="body-en" style="font-style:italic" lang="en">A hundred refinings make steel.</p>
+          <p class="body-tc" style="font-style:italic" lang="zh-Hant">百煉成鋼。</p>
+        </blockquote>
+        <p class="element-stage__keywords">Strength. Determination. Resilience.</p>
+        <p class="element-stage__keywords-tc" lang="zh-Hant">力量。堅韌。決心。</p>
+        <div class="bilingual-stack">
+          <p class="element-stage__persona body-en">For the ones who do not break easily.</p>
+          <p class="element-stage__persona body-tc" lang="zh-Hant">送給不輕易低頭的人。</p>
+        </div>
+        <a href="#section-6" class="cta cta--element js-smooth-scroll">
+          <span class="cta-text">EXPLORE 金 METAL COLLECTION</span>
+          <span class="cta-text-tc">探索金系列</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- 木 Wood -->
+    <div class="element-stage" id="element-wood" data-accent="forest" aria-label="Wood element collection">
+      <div class="element-stage__bg-wrap">
+        <picture>
+          <source srcset="assets/images/wood-forest.avif" type="image/avif">
+          <source srcset="assets/images/wood-forest.webp" type="image/webp">
+          <img src="assets/images/wood-forest.jpg"
+               alt="Aerial view of dense forest canopy with morning light filtering through"
+               class="element-stage__bg"
+               loading="lazy"
+               style="background: url('assets/placeholder/wood-lqip.svg') center/cover no-repeat">
+        </picture>
+      </div>
+      <div class="element-stage__overlay"></div>
+      <div class="element-stage__content">
+        <span class="element-stage__symbol" aria-hidden="true">木</span>
+        <h2 class="element-stage__name display-en">Wood</h2>
+        <blockquote class="element-stage__quote bilingual-stack">
+          <p class="body-en" style="font-style:italic" lang="en">Break through the cocoon; become the butterfly.</p>
+          <p class="body-tc" style="font-style:italic" lang="zh-Hant">破繭成蝶。</p>
+        </blockquote>
+        <p class="element-stage__keywords">Growth. Vitality. New beginnings.</p>
+        <p class="element-stage__keywords-tc" lang="zh-Hant">生長。新生。蛻變。</p>
+        <div class="bilingual-stack">
+          <p class="element-stage__persona body-en">For the ones who are becoming.</p>
+          <p class="element-stage__persona body-tc" lang="zh-Hant">送給仍在成為自己的人。</p>
+        </div>
+        <a href="#section-6" class="cta cta--element js-smooth-scroll">
+          <span class="cta-text">EXPLORE 木 WOOD COLLECTION</span>
+          <span class="cta-text-tc">探索木系列</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- 水 Water -->
+    <div class="element-stage" id="element-water" data-accent="ocean" aria-label="Water element collection">
+      <div class="element-stage__bg-wrap">
+        <picture>
+          <source srcset="assets/images/water-ocean.avif" type="image/avif">
+          <source srcset="assets/images/water-ocean.webp" type="image/webp">
+          <img src="assets/images/water-ocean.jpg"
+               alt="Aerial view of open ocean, deep blue water with white foam patterns"
+               class="element-stage__bg"
+               loading="lazy"
+               style="background: url('assets/placeholder/water-lqip.svg') center/cover no-repeat">
+        </picture>
+      </div>
+      <div class="element-stage__overlay"></div>
+      <div class="element-stage__content">
+        <span class="element-stage__symbol" aria-hidden="true">水</span>
+        <h2 class="element-stage__name display-en">Water</h2>
+        <blockquote class="element-stage__quote bilingual-stack">
+          <p class="body-en" style="font-style:italic" lang="en">The highest good is like water.</p>
+          <p class="body-tc" style="font-style:italic" lang="zh-Hant">上善若水。</p>
+        </blockquote>
+        <p class="element-stage__keywords">Wisdom. Flow. Adaptability.</p>
+        <p class="element-stage__keywords-tc" lang="zh-Hant">智慧。流動。從容。</p>
+        <div class="bilingual-stack">
+          <p class="element-stage__persona body-en">For the ones who know when to move and when to be still.</p>
+          <p class="element-stage__persona body-tc" lang="zh-Hant">送給懂得動靜之間的人。</p>
+        </div>
+        <a href="#section-6" class="cta cta--element js-smooth-scroll">
+          <span class="cta-text">EXPLORE 水 WATER COLLECTION</span>
+          <span class="cta-text-tc">探索水系列</span>
+        </a>
+      </div>
+    </div>
+
   </section>
 
   <!-- ===== SECTION 4: VALUE PROPOSITIONS ===== -->
