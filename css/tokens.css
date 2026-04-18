@@ -1,0 +1,77 @@
+:root {
+  /* Colours */
+  --ink: #1A1A1E;
+  --gold: #C9A96E;
+  --cream: #F5F0E8;
+  --slate: #3D3D3A;
+  --sand: #E8DFD1;
+  --forest: #4A8C1A;
+  --ocean: #2E6BAD;
+  --white: #FFFFFF;
+
+  /* Overlay */
+  --overlay-dark: rgba(26, 26, 30, 0.5);
+
+  /* Spacing (8px grid) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  /* Typography — mobile-first */
+  --font-en-display: "Cormorant Garamond", "Georgia", serif;
+  --font-tc-display: "Noto Serif TC", "PMingLiU", serif;
+  --font-en-body: "Inter", "Helvetica Neue", sans-serif;
+  --font-tc-body: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  --font-en-sub: "DM Sans", "Helvetica Neue", sans-serif;
+  --font-cta: "Inter", "Helvetica Neue", sans-serif;
+
+  --fs-display-en: 28px;
+  --fs-display-tc: 24px;
+  --fs-sub-en: 16px;
+  --fs-sub-tc: 15px;
+  --fs-body: 14px;
+  --fs-cta: 11px;
+  --fs-eyebrow: 11px;
+
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+
+  /* Layout */
+  --max-text-width: 480px;
+  --nav-height-mobile: 48px;
+  --nav-height-desktop: 56px;
+
+  /* Animation */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 200ms;
+  --duration-normal: 400ms;
+  --duration-slow: 800ms;
+
+  /* Breakpoints (used via media queries, not variables) */
+  /* Mobile: default */
+  /* Tablet: 768px */
+  /* Desktop: 1024px */
+  /* Wide: 1440px */
+}
+
+/* Desktop overrides */
+@media (min-width: 1024px) {
+  :root {
+    --fs-display-en: 48px;
+    --fs-display-tc: 42px;
+    --fs-sub-en: 20px;
+    --fs-sub-tc: 19px;
+    --fs-body: 16px;
+    --fs-cta: 12px;
+    --fs-eyebrow: 12px;
+  }
+}

@@ -1,0 +1,82 @@
+/* Google Fonts loaded via <link> in HTML — no @font-face needed */
+
+/* Display headings */
+.display-en {
+  font-family: var(--font-en-display);
+  font-size: var(--fs-display-en);
+  font-weight: var(--fw-light);
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+}
+
+.display-tc {
+  font-family: var(--font-tc-display);
+  font-size: var(--fs-display-tc);
+  font-weight: var(--fw-regular);
+  line-height: 1.4;
+  color: var(--ink);
+}
+
+/* Subheadings */
+.sub-en {
+  font-family: var(--font-en-sub);
+  font-size: var(--fs-sub-en);
+  font-weight: var(--fw-regular);
+  line-height: 1.5;
+}
+
+.sub-tc {
+  font-family: var(--font-tc-body);
+  font-size: var(--fs-sub-tc);
+  font-weight: var(--fw-regular);
+  line-height: 1.6;
+}
+
+/* Body text */
+.body-en {
+  font-family: var(--font-en-body);
+  font-size: var(--fs-body);
+  line-height: 1.7;
+}
+
+.body-tc {
+  font-family: var(--font-tc-body);
+  font-size: var(--fs-body);
+  line-height: 1.8;
+}
+
+/* Eyebrow / CTA labels — Aesop style */
+.eyebrow {
+  font-family: var(--font-cta);
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* CTA button text */
+.cta-text {
+  font-family: var(--font-cta);
+  font-size: var(--fs-cta);
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* Bilingual stack: EN above, TC below, 8px gap */
+.bilingual-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.bilingual-stack .tc {
+  color: var(--slate);
+}
+
+/* On dark backgrounds, TC uses lighter opacity */
+.on-dark .bilingual-stack .tc {
+  color: rgba(245, 240, 232, 0.7);
+}
