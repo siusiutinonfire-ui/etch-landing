@@ -1,0 +1,52 @@
+.element-tabs {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  gap: var(--space-8);
+  padding: var(--space-4) var(--space-6);
+  background: rgba(26, 26, 30, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.element-tabs__btn {
+  font-family: var(--font-tc-display);
+  font-size: 18px;
+  font-weight: var(--fw-regular);
+  color: rgba(245, 240, 232, 0.5);
+  padding: var(--space-2) var(--space-4);
+  position: relative;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.element-tabs__btn::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: var(--space-4);
+  right: var(--space-4);
+  height: 2px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.element-tabs__btn.is-active {
+  color: var(--cream);
+}
+
+.element-tabs__btn.is-active::after {
+  transform: scaleX(1);
+}
+
+.element-tabs__btn:hover {
+  color: var(--cream);
+}
+
+@media (min-width: 1024px) {
+  .element-tabs__btn {
+    font-size: 22px;
+  }
+}
