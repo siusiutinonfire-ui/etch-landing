@@ -1,0 +1,118 @@
+.craft {
+  background-color: var(--ink);
+  color: var(--cream);
+  padding: var(--space-16) var(--space-6);
+}
+
+.craft__layout {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.craft__image-wrap {
+  margin-bottom: var(--space-12);
+}
+
+.craft__image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.craft .eyebrow {
+  display: block;
+  margin-bottom: var(--space-6);
+}
+
+.craft__headline {
+  margin-bottom: var(--space-8);
+}
+
+.craft__headline .display-en {
+  color: var(--cream);
+}
+
+.craft__headline .display-tc {
+  color: rgba(245, 240, 232, 0.7);
+}
+
+.craft__body {
+  max-width: var(--max-text-width);
+  margin-bottom: var(--space-6);
+}
+
+.craft__body .body-en {
+  color: rgba(245, 240, 232, 0.9);
+  margin-bottom: var(--space-2);
+}
+
+.craft__body .body-tc {
+  color: rgba(245, 240, 232, 0.55);
+}
+
+.craft__specs {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin: var(--space-8) 0;
+}
+
+.craft__rule {
+  border: none;
+  height: 1px;
+  width: 40px;
+  background: var(--gold);
+  opacity: 0.4;
+  margin: var(--space-8) 0;
+}
+
+.craft__closing .body-en {
+  color: rgba(245, 240, 232, 0.9);
+}
+
+/* Fade-in animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity var(--duration-slow) var(--ease-out),
+              transform var(--duration-slow) var(--ease-out);
+}
+
+.fade-in.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Desktop: side-by-side layout */
+@media (min-width: 1024px) {
+  .craft {
+    padding: var(--space-24) var(--space-16);
+  }
+
+  .craft__layout {
+    display: flex;
+    gap: var(--space-16);
+    align-items: flex-start;
+  }
+
+  .craft__image-wrap {
+    flex: 0 0 55%;
+    position: sticky;
+    top: var(--space-12);
+    margin-bottom: 0;
+  }
+
+  .craft__text {
+    flex: 1;
+    padding-top: var(--space-8);
+  }
+}
