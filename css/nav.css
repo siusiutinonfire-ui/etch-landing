@@ -1,2 +1,58 @@
-/* Populated in Task 10 */
-.site-nav { display: none; }
+.site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: var(--nav-height-mobile);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-6);
+  background: rgba(245, 240, 232, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(232, 223, 209, 0.5);
+  transform: translateY(-100%);
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.site-nav.is-visible {
+  transform: translateY(0);
+}
+
+.site-nav__logo {
+  font-family: var(--font-cta);
+  font-size: 14px;
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.site-nav__shop {
+  font-family: var(--font-cta);
+  font-size: var(--fs-cta);
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+
+.site-nav__shop:hover {
+  opacity: 0.7;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-nav {
+    transition: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .site-nav {
+    height: var(--nav-height-desktop);
+    padding: 0 var(--space-12);
+  }
+}
