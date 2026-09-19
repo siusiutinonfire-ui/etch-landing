@@ -1,0 +1,33 @@
+/* Order toast — confirms the DM message was copied (see js/order.js) */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: var(--space-6);
+  z-index: 200;
+  max-width: min(92vw, 420px);
+  padding: var(--space-3) var(--space-4);
+  background: var(--ink);
+  color: var(--cream);
+  font-family: var(--font-en-body);
+  font-size: 12px;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  text-align: center;
+  white-space: pre-line;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 8px);
+  transition: opacity var(--duration-fast) var(--ease-out),
+              transform var(--duration-fast) var(--ease-out);
+}
+
+.toast.is-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toast {
+    transition: none;
+  }
+}

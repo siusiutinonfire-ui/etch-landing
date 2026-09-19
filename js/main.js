@@ -1,3 +1,6 @@
+import { SITE } from "./config.js";
+import { initLinks } from "./links.js";
+import { initOrderButtons } from "./order.js";
 import { initSmoothScroll } from "./smooth-scroll.js";
 import { createScrollObserver } from "./scroll-observer.js";
 import { initElementScroll } from "./element-scroll.js";
@@ -6,6 +9,8 @@ import { initFaqAccordion } from "./faq-accordion.js";
 import { initStickyNav } from "./sticky-nav.js";
 
 document.addEventListener("DOMContentLoaded", () => {
+  initLinks(SITE);
+  initOrderButtons({ site: SITE });
   initSmoothScroll();
   initElementScroll();
   initElementTabs();

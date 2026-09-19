@@ -91,3 +91,11 @@
     font-size: 36px;
   }
 }
+
+/* TC note under a "From" price */
+.pricing-card__price-note {
+  font-family: var(--font-tc-body);
+  font-size: var(--fs-body);
+  color: var(--slate);
+  margin-top: calc(-1 * var(--space-2));
+}
