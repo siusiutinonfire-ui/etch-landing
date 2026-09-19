@@ -6,7 +6,9 @@
 .element-stage {
   position: relative;
   height: 170vh;
-  overflow: hidden;
+  /* clip, not hidden: overflow:hidden makes this a scroll container, which
+     would stop position:sticky on the bg/overlay/content layers from pinning */
+  overflow: clip;
 }
 
 .element-stage__bg-wrap {
