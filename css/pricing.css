@@ -33,7 +33,11 @@
 
 .pricing-card__badge {
   display: inline-block;
+  align-self: flex-start;
   margin-bottom: var(--space-1);
+  padding: 4px 8px;
+  background: var(--gold);
+  color: var(--ink); /* ink on gold = 6.2:1; gold text on white failed AA */
 }
 
 .pricing-card__price {

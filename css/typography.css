@@ -73,6 +73,12 @@
   opacity: 0.7;
 }
 
+/* On the filled gold button the muted TC label fails AA — use solid ink */
+.cta--primary .cta-text-tc {
+  color: var(--ink);
+  opacity: 1;
+}
+
 /* Bilingual stack: EN above, TC below, 8px gap */
 .bilingual-stack {
   display: flex;

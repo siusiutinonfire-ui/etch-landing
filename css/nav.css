@@ -36,7 +36,7 @@
   font-weight: var(--fw-medium);
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-deep);
   transition: opacity var(--duration-fast) var(--ease-out);
 }
 

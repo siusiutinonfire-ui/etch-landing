@@ -2,6 +2,8 @@
   /* Colours */
   --ink: #1A1A1E;
   --gold: #C9A96E;
+  /* Small gold text on light backgrounds needs a deeper gold to reach AA (5.3:1 on cream) */
+  --gold-deep: #7A5F2E;
   --cream: #F5F0E8;
   --slate: #3D3D3A;
   --sand: #E8DFD1;

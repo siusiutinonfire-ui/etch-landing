@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { test, expect } from "./fixtures.js";
 
 test.describe("Links and order path", () => {
   test("no anchor on the page is a dead '#' link", async ({ page }) => {

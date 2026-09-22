@@ -14,6 +14,7 @@
 
 /* Horizontal scroll on mobile */
 .scenes__scroll {
+  list-style: none;
   display: flex;
   gap: var(--space-4);
   overflow-x: auto;
@@ -56,6 +57,7 @@
 .scene-card__tag {
   margin-top: auto;
   padding-top: var(--space-4);
+  color: var(--gold-deep); /* informational small text: gold on cream fails AA */
 }
 
 /* Self-use card: equal visual weight, subtle differentiation */

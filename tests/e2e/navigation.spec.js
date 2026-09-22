@@ -1,32 +1,26 @@
-import { test, expect } from "@playwright/test";
+import { test, expect } from "./fixtures.js";
+import { waitForScrollEnd } from "./helpers.js";
 
 test.describe("Navigation", () => {
   test("sticky nav appears after scrolling past hero", async ({ page }) => {
     await page.goto("/");
     const nav = page.locator("#site-nav");
 
-    // Nav hidden initially
     await expect(nav).not.toHaveClass(/is-visible/);
 
-    // Scroll past hero
-    await page.evaluate(() => window.scrollTo(0, window.innerHeight + 100));
-    await page.waitForTimeout(300);
-
+    await page.evaluate(() => window.scrollTo({ top: window.innerHeight + 100, behavior: "instant" }));
     await expect(nav).toHaveClass(/is-visible/);
   });
 
   test("SHOP link in nav smooth-scrolls to pricing", async ({ page }) => {
     await page.goto("/");
 
-    // Scroll to make nav visible
-    await page.evaluate(() => window.scrollTo(0, window.innerHeight + 100));
-    await page.waitForTimeout(300);
+    await page.evaluate(() => window.scrollTo({ top: window.innerHeight + 100, behavior: "instant" }));
+    await expect(page.locator("#site-nav")).toHaveClass(/is-visible/);
 
-    // Click SHOP
     await page.locator(".site-nav__shop").click();
-    await page.waitForTimeout(1000);
+    await waitForScrollEnd(page);
 
-    // Verify scrolled near Section 6
     const section6Top = await page.locator("#section-6").evaluate((el) => el.getBoundingClientRect().top);
     expect(Math.abs(section6Top)).toBeLessThan(200);
   });
@@ -34,17 +28,14 @@ test.describe("Navigation", () => {
   test("element tabs navigate between elements", async ({ page }) => {
     await page.goto("/");
 
-    // Scroll to Section 3
-    await page.evaluate(() => {
-      document.getElementById("section-3").scrollIntoView();
-    });
-    await page.waitForTimeout(500);
+    await page.evaluate(() => document.getElementById("section-3").scrollIntoView({ behavior: "instant" }));
+    await page.waitForTimeout(200);
 
-    // Click 水 tab
     await page.locator('[data-target="element-water"]').click();
-    await page.waitForTimeout(1000);
+    await waitForScrollEnd(page);
 
-    // Verify 水 tab is active
     await expect(page.locator('[data-target="element-water"]')).toHaveClass(/is-active/);
+    const waterTop = await page.locator("#element-water").evaluate((el) => el.getBoundingClientRect().top);
+    expect(waterTop).toBeLessThanOrEqual(1);
   });
 });

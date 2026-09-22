@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { test, expect } from "./fixtures.js";
 
 test.describe("Pricing copy", () => {
   test("free HK shipping threshold is HK$198 so the element pair qualifies", async ({ page }) => {
