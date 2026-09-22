@@ -37,7 +37,8 @@ const TYPES = {
   await page.goto(`${ORIGIN}/`, { waitUntil: "load", timeout: 90000 });
   await page.evaluate(() => document.fonts.ready);
   await page.waitForTimeout(800);
-  await page.addStyleTag({ content: ".hero__scroll-indicator{display:none !important}" });
+  // At 1200x630 the bottom-anchored copy would sit over the card; slide the visual right for the preview.
+  await page.addStyleTag({ content: ".hero__scroll-indicator{display:none !important} .hero__visual{transform:translateX(12%)}" });
 
   const hero = page.locator("#section-1");
   await hero.screenshot({ path: OUT, type: "jpeg", quality: 82 });
