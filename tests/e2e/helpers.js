@@ -1,8 +1,8 @@
 /**
- * Resolve once window.scrollY has been stable for `settleMs`. Needed because
- * the page uses CSS smooth scrolling and a fixed wait is flaky on long pages.
+ * Resolve once window.scrollY has been stable for `settleMs`. The page uses
+ * CSS smooth scrolling, so fixed waits are flaky on a long page.
  */
-export async function waitForScrollEnd(page, { settleMs = 150, timeout = 8000 } = {}) {
+export async function waitForScrollEnd(page, { settleMs = 250, timeout = 8000 } = {}) {
   await page.waitForFunction(
     (settle) =>
       new Promise((resolve) => {
@@ -29,4 +29,9 @@ export async function jumpTo(page, selector) {
     document.querySelector(sel).scrollIntoView({ behavior: "instant", block: "start" });
   }, selector);
   await page.waitForTimeout(200);
+}
+
+/** Absolute distance (px) between an element's top edge and the viewport top. */
+export async function distanceToTop(page, selector) {
+  return page.locator(selector).evaluate((el) => Math.abs(el.getBoundingClientRect().top));
 }
