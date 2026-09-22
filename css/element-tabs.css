@@ -1,6 +1,6 @@
 .element-tabs {
   position: sticky;
-  top: 0;
+  top: var(--nav-height-mobile); /* below the fixed site nav */
   z-index: 10;
   display: flex;
   justify-content: center;
@@ -46,6 +46,10 @@
 }
 
 @media (min-width: 1024px) {
+  .element-tabs {
+    top: var(--nav-height-desktop);
+  }
+
   .element-tabs__btn {
     font-size: 22px;
   }

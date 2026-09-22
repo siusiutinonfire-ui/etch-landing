@@ -27,9 +27,22 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 50%;
-  background: linear-gradient(to top, rgba(26, 26, 30, 0.7) 0%, transparent 100%);
+  /* Mobile: the copy block fills ~70% of the viewport, so the scrim must reach most of the way up */
+  height: 100%;
+  background: linear-gradient(
+    to top,
+    rgba(26, 26, 30, 0.88) 0%,
+    rgba(26, 26, 30, 0.66) 38%,
+    rgba(26, 26, 30, 0.28) 66%,
+    transparent 100%
+  );
   z-index: 2;
+}
+
+.hero__title,
+.hero__title-tc,
+.hero__subtitle {
+  text-shadow: 0 1px 14px rgba(26, 26, 30, 0.5);
 }
 
 .hero__content {
@@ -105,6 +118,11 @@
 }
 
 @media (min-width: 1024px) {
+  .hero__gradient {
+    height: 65%;
+    background: linear-gradient(to top, rgba(26, 26, 30, 0.82) 0%, rgba(26, 26, 30, 0.45) 55%, transparent 100%);
+  }
+
   .hero__content {
     padding: var(--space-12) var(--space-16) var(--space-20);
     max-width: 600px;

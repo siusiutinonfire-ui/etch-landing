@@ -39,3 +39,20 @@ test.describe("Five Elements stages", () => {
     });
   }
 });
+
+test.describe("Element tabs", () => {
+  test("tab bar sits directly below the sticky nav while inside a stage", async ({ page }) => {
+    await page.goto("/");
+    await scrollIntoStage(page, "#element-wood", 0.4);
+    const pos = await page.evaluate(() => {
+      const nav = document.getElementById("site-nav");
+      return {
+        navVisible: nav.classList.contains("is-visible"),
+        navHeight: nav.getBoundingClientRect().height,
+        tabsTop: document.getElementById("element-tabs").getBoundingClientRect().top,
+      };
+    });
+    expect(pos.navVisible).toBe(true);
+    expect(Math.abs(pos.tabsTop - pos.navHeight)).toBeLessThan(2);
+  });
+});
