@@ -38,7 +38,14 @@ const TYPES = {
   await page.evaluate(() => document.fonts.ready);
   await page.waitForTimeout(800);
   // At 1200x630 the bottom-anchored copy would sit over the card; slide the visual right for the preview.
-  await page.addStyleTag({ content: ".hero__scroll-indicator{display:none !important} .hero__visual{transform:translateX(12%)}" });
+  await page.addStyleTag({
+    content: [
+      ".hero__scroll-indicator{display:none !important}",
+      ".hero__visual{transform:translateX(12%)}",
+      // The 630 px-tall crop puts the headline above the desktop scrim; use a full-height one for the preview.
+      ".hero__gradient{height:100% !important;background:linear-gradient(to top,rgba(26,26,30,.88) 0%,rgba(26,26,30,.6) 45%,rgba(26,26,30,.3) 80%,rgba(26,26,30,.15) 100%) !important}",
+    ].join(" "),
+  });
 
   const hero = page.locator("#section-1");
   await hero.screenshot({ path: OUT, type: "jpeg", quality: 82 });
