@@ -55,7 +55,7 @@ test.describe("Assets", () => {
       if (/\.(jpe?g|webp|avif|png|svg)(\?|$)/i.test(url)) bytes.images += len;
       else bytes.other += len;
     });
-    await page.goto("/", { waitUntil: "networkidle" });
+    await page.goto("./", { waitUntil: "networkidle" });
     for (const id of ["element-metal", "element-wood", "element-water"]) await jumpTo(page, `#${id}`);
     await page.waitForLoadState("networkidle");
     expect(bytes.images, "images").toBeLessThan(1.2 * MB);
