@@ -6,8 +6,7 @@ Sales landing page for ETCH Element Cards. Standalone from the Shopify store, bu
 
 ```bash
 npm install
-npm run dev              # live-server with auto-reload on http://localhost:3000
-node scripts/serve.cjs   # plain static server (what the E2E suite uses)
+npm run dev              # static server on http://localhost:3000 (scripts/serve.cjs, loopback only)
 ```
 
 ## Testing

@@ -4,17 +4,16 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "npx live-server --port=3000 --no-browser",
+    "dev": "node scripts/serve.cjs 3000",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui"
   },
   "devDependencies": {
-    "vitest": "^3.1.0",
-    "jsdom": "^26.0.0",
-    "@playwright/test": "^1.50.0",
     "@axe-core/playwright": "^4.10.0",
-    "live-server": "^1.2.2"
+    "@playwright/test": "^1.50.0",
+    "jsdom": "^26.0.0",
+    "vitest": "^3.1.0"
   }
 }

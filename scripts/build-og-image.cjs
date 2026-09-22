@@ -30,7 +30,8 @@ const TYPES = {
     const url = new URL(route.request().url());
     const rel = url.pathname === "/" ? "index.html" : decodeURIComponent(url.pathname.slice(1));
     const file = path.join(ROOT, rel);
-    if (!file.startsWith(ROOT) || !fs.existsSync(file)) return route.fulfill({ status: 404, body: "not found" });
+    const inside = file === ROOT || file.startsWith(ROOT + path.sep);
+    if (!inside || !fs.existsSync(file)) return route.fulfill({ status: 404, body: "not found" });
     return route.fulfill({ status: 200, contentType: TYPES[path.extname(file)] || "application/octet-stream", body: fs.readFileSync(file) });
   });
 
