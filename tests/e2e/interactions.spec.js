@@ -3,7 +3,7 @@ import { jumpTo, distanceToTop } from "./helpers.js";
 
 test.describe("Interactions", () => {
   test("FAQ accordion opens and closes", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("./");
     await jumpTo(page, "#section-7");
 
     const firstItem = page.locator(".faq__item").first();
@@ -17,7 +17,7 @@ test.describe("Interactions", () => {
   });
 
   test("FAQ exclusive accordion — only one open at a time", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("./");
     await jumpTo(page, "#section-7");
 
     const items = page.locator(".faq__item");
@@ -33,14 +33,14 @@ test.describe("Interactions", () => {
   });
 
   test("hero primary CTA scrolls to Section 3", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("./");
     await page.locator("#section-1 .cta--primary").click();
     // Smooth scroll: retry until the section has arrived at the top.
     await expect.poll(() => distanceToTop(page, "#section-3"), { timeout: 8000 }).toBeLessThan(200);
   });
 
   test("hero ghost CTA scrolls to pricing", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("./");
     await page.locator("#section-1 .cta--ghost").click();
     await expect.poll(() => distanceToTop(page, "#section-6"), { timeout: 8000 }).toBeLessThan(200);
   });

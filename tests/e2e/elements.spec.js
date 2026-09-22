@@ -19,7 +19,7 @@ async function scrollIntoStage(page, id, fraction) {
 test.describe("Five Elements stages", () => {
   for (const id of ["#element-metal", "#element-wood", "#element-water"]) {
     test(`${id} background and text stay pinned 40% into the stage`, async ({ page }) => {
-      await page.goto("/");
+      await page.goto("./");
       await scrollIntoStage(page, id, 0.4);
 
       const tops = await page.evaluate((sel) => {
@@ -42,7 +42,7 @@ test.describe("Five Elements stages", () => {
 
 test.describe("Element tabs", () => {
   test("tab bar sits directly below the sticky nav while inside a stage", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("./");
     await scrollIntoStage(page, "#element-wood", 0.4);
     const pos = await page.evaluate(() => {
       const nav = document.getElementById("site-nav");

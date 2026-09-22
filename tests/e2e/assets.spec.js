@@ -5,7 +5,7 @@ const MB = 1024 * 1024;
 
 test.describe("Assets", () => {
   test("element stage backgrounds are real photographs with WebP sources", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("./");
     for (const id of ["element-metal", "element-wood", "element-water"]) {
       await jumpTo(page, `#${id}`);
       const picture = page.locator(`#${id} picture`);
@@ -22,7 +22,7 @@ test.describe("Assets", () => {
   });
 
   test("hero and craft visuals have accessible names", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("./");
     for (const section of ["#section-1", "#section-2"]) {
       const visual = page.locator(`${section} [role="img"]`);
       await expect(visual).toHaveCount(1);
@@ -31,7 +31,7 @@ test.describe("Assets", () => {
   });
 
   test("no image on the page is a 1x1 placeholder", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("./");
     for (const img of await page.locator("img").all()) {
       await img.scrollIntoViewIfNeeded();
       const naturalWidth = await img.evaluate(async (el) => {

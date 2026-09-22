@@ -3,7 +3,7 @@ import { distanceToTop } from "./helpers.js";
 
 test.describe("Navigation", () => {
   test("sticky nav appears after scrolling past hero", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("./");
     const nav = page.locator("#site-nav");
 
     await expect(nav).not.toHaveClass(/is-visible/);
@@ -13,7 +13,7 @@ test.describe("Navigation", () => {
   });
 
   test("SHOP link in nav smooth-scrolls to pricing", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("./");
 
     await page.evaluate(() => window.scrollTo({ top: window.innerHeight + 100, behavior: "instant" }));
     await expect(page.locator("#site-nav")).toHaveClass(/is-visible/);
@@ -23,7 +23,7 @@ test.describe("Navigation", () => {
   });
 
   test("element tabs navigate between elements", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("./");
 
     await page.evaluate(() => document.getElementById("section-3").scrollIntoView({ behavior: "instant" }));
     await page.waitForTimeout(200);

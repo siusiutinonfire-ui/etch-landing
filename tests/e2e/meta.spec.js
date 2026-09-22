@@ -6,7 +6,7 @@ async function meta(page, selector) {
 
 test.describe("Meta and social tags", () => {
   test("canonical and Open Graph URLs are absolute and point at the real site", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("./");
     const canonical = await page.locator('link[rel="canonical"]').getAttribute("href");
     expect(canonical).toMatch(/^https:\/\/.+\/$/);
     expect(canonical).not.toContain("example.com");
@@ -23,10 +23,11 @@ test.describe("Meta and social tags", () => {
   });
 
   test("OG image, favicon and robots.txt are served", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("./");
     const canonical = await page.locator('link[rel="canonical"]').getAttribute("href");
     const ogImage = await meta(page, 'meta[property="og:image"]');
-    const ogLocal = "/" + ogImage.slice(canonical.length);
+    // Base-relative so the same test works under the GitHub Pages sub-path.
+    const ogLocal = ogImage.slice(canonical.length);
 
     const og = await page.request.get(ogLocal);
     expect(og.status(), `GET ${ogLocal}`).toBe(200);
@@ -35,10 +36,10 @@ test.describe("Meta and social tags", () => {
     const icon = await page.locator('link[rel="icon"]').getAttribute("href");
     expect(icon).toBeTruthy();
     expect(icon.startsWith("data:")).toBe(false);
-    const iconRes = await page.request.get("/" + icon.replace(/^\/?/, ""));
+    const iconRes = await page.request.get(icon);
     expect(iconRes.status(), `GET ${icon}`).toBe(200);
 
-    const robots = await page.request.get("/robots.txt");
+    const robots = await page.request.get("robots.txt");
     expect(robots.status()).toBe(200);
     expect(await robots.text()).toContain("User-agent");
   });

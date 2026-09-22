@@ -26,7 +26,7 @@ Everything that changes between environments or business stages lives in [`js/co
 | Key | Purpose |
 |---|---|
 | `canonicalUrl` | Public URL. Also appears in the `<head>` canonical / `og:url` / `og:image` / `twitter:image` tags — keep both in sync. |
-| `instagramHandle`, `contactEmail` | Social handle (DM + profile links) and contact mailbox. Both unconfirmed at the time of writing. |
+| `instagramHandle` | Instagram handle behind the DM order path, the CONTACT link and the profile link. Unconfirmed at the time of writing. |
 | `orderPath` | `"instagram"` (interim: SELECT opens an Instagram DM and copies a bilingual order message to the clipboard) or `"shopify"` (SELECT opens each product's `shopifyUrl`; products without one fall back to the DM). |
 | `metaPixelId`, `ga4Id` | Empty strings load no tracking at all. When set, the page reports ViewContent, InitiateCheckout (product, value, HKD) and Contact. |
 | `products` | Names, prices and (future) Shopify URLs for the four pricing cards. |
@@ -64,7 +64,7 @@ Live URL: https://siusiutinonfire-ui.github.io/etch-landing/ — verify with `BA
 - [x] Order path wired (Instagram DM interim) and no dead links
 - [x] Free HK shipping threshold HK$198 (pair qualifies); gift box "From HK$168"
 - [ ] Confirm the Instagram handle exists (`@etch.cards`) and update `js/config.js` if different
-- [ ] Confirm the `hello@etch.cards` mailbox exists before using it anywhere
+- [ ] Confirm the `hello@etch.cards` mailbox exists before publishing the legal and store drafts that mention it
 - [ ] Add the Meta Pixel ID and GA4 ID to `js/config.js`
 - [ ] Replace the interim hero and craft SVG visuals with product photography (needs factory samples); rebuild the OG image
 - [ ] Switch `orderPath` to `"shopify"` and fill each product's `shopifyUrl` once the store is live

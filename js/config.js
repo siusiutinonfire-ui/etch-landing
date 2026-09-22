@@ -11,9 +11,6 @@ export const SITE = {
   // TODO confirm the handle once the Instagram account is created.
   instagramHandle: "etch.cards",
 
-  // TODO confirm the mailbox exists before pointing anything at it.
-  contactEmail: "hello@etch.cards",
-
   // "instagram" — SELECT opens an Instagram DM (interim launch path).
   // "shopify"   — SELECT opens the product's shopifyUrl (falls back to DM
   //               for any product without a url).

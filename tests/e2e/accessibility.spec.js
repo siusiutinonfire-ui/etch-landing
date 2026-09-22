@@ -20,7 +20,7 @@ async function revealEverything(page) {
 
 test.describe("Accessibility", () => {
   test("whole page passes the axe audit", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("./");
     await revealEverything(page);
     const results = await new AxeBuilder({ page })
       // The oversized 01/02/03 numerals are aria-hidden decoration and are
@@ -34,21 +34,21 @@ test.describe("Accessibility", () => {
   });
 
   test("all images have alt text", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("./");
     for (const img of await page.locator("img").all()) {
       expect(await img.getAttribute("alt")).toBeTruthy();
     }
   });
 
   test("first link is focusable and receives focus", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("./");
     const firstLink = page.locator("a").first();
     await firstLink.focus();
     expect(await firstLink.evaluate((el) => el === document.activeElement)).toBe(true);
   });
 
   test("Traditional Chinese text is marked with lang=zh-Hant", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("./");
     const tcSelectors = [".display-tc", ".sub-tc", ".body-tc", ".cta-text-tc", ".element-tabs__btn", ".hero__title-tc"];
     for (const sel of tcSelectors) {
       const total = await page.locator(sel).count();
@@ -59,7 +59,7 @@ test.describe("Accessibility", () => {
   });
 
   test("each element stage is a section labelled by its heading", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("./");
     const stages = page.locator(".element-stage");
     expect(await stages.count()).toBe(3);
     for (const stage of await stages.all()) {
@@ -71,10 +71,12 @@ test.describe("Accessibility", () => {
   });
 
   test("the scenes carousel is a keyboard-reachable list", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("./");
     const scroller = page.locator(".scenes__scroll");
     expect(await scroller.evaluate((el) => el.tagName)).toBe("UL");
     await expect(scroller).toHaveAttribute("tabindex", "0");
+    // Explicit role: Safari/VoiceOver drops the implicit list role on a flex <ul> with list-style:none.
+    await expect(scroller).toHaveAttribute("role", "list");
     expect(await scroller.getAttribute("aria-label")).toBeTruthy();
     expect(await scroller.locator("> li.scene-card").count()).toBe(5);
   });
